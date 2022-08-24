@@ -98,39 +98,27 @@ void reverse(Node*& head) {
 }
 
 //Слияние сортированных списков
-Node* merge(Node* &first, Node* &second) {
+Node* merge(Node* first, Node* second) {
 	// 1 3 5 8 - первый список
 	// 4 10 12 - второй список
 	//функция должна вернуть 1 3 4 5 8 10 12
 	
-	Node* new_head = new Node;
-	Node* it = new_head;
-	Node* ptr1 = first;
-	Node* ptr2 = second;
+	Node* ans = new Node;
+	Node* it = ans;
 
-	while(ptr1 || ptr2) {
+	while(first || second) {
 		
-		if (ptr1 && ptr1->value <= ptr2->value) {
-			std::cout << "ptr1 " << ptr1->value << '\n';
-			it->value = ptr1->value;
-			//push_back(new_head, ptr1->value);
-			ptr1 = ptr1->next;
-			it = it->next;
-		}
-		else if(ptr2) {
-			std::cout << "ptr1 " << ptr2->value << '\n';
-			it->value = ptr2->value;
-			//push_back(new_head, ptr2->value);
-			ptr2 = ptr2->next;
-			it = it->next;
-		}
-		
-		if (ptr1 || ptr2) {
-			it = new Node;
+		if (first && (!second || first->value <= second->value)) {
+			it->value = first->value;
+			first = first->next;
 		}
 		else {
-			it = nullptr;
+			it->value = second->value;
+			second = second->next;
 		}
+		
+		it->next = (first || second ? new Node : nullptr);
+		it = it->next;
 	}
-	return new_head;
+	return ans;
 }

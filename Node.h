@@ -20,7 +20,7 @@ void insert(Node*& head, Node* target, int value);						//Вставить элемент за эл
 void free_nodes(Node*& head);								//Освобождает память
 
 void reverse(Node*& head);									//Разворачивает список
-Node* merge(Node* &first, Node* &second);						//Слияние сортированных списков
+Node* merge(Node* first, Node* second);						//Слияние сортированных списков
 
 
 #endif

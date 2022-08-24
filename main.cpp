@@ -20,6 +20,9 @@ int main() {
 	std::cout << std::endl;
 
 	Node* new_head = merge(head, head2);
+	print(new_head); 
+	std::cout << std::endl;
+	reverse(new_head);
 	print(new_head);
 
 	return 0;
