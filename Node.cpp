@@ -2,7 +2,7 @@
 
 #include "Node.h"
 
-//Функция создаёт новый узел
+//Р¤СѓРЅРєС†РёСЏ СЃРѕР·РґР°С‘С‚ РЅРѕРІС‹Р№ СѓР·РµР»
 Node* create_node(int value, Node* next, Node* prev) {
 	Node* head = new Node;
 	head->value = value;
@@ -11,7 +11,7 @@ Node* create_node(int value, Node* next, Node* prev) {
 	return head;
 }
 
-//Функция находит первый элемент с value = value
+//Р¤СѓРЅРєС†РёСЏ РЅР°С…РѕРґРёС‚ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ СЃ value = value
 Node* find(Node* head, int value) {
 	for (Node* it = head; it->next != nullptr; it = it->next) {
 		if (it->value == value) {
@@ -22,7 +22,7 @@ Node* find(Node* head, int value) {
 	return nullptr;
 }
 
-//Функция добавляет новый узел со значением value в конец списка head
+//Р¤СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»СЏРµС‚ РЅРѕРІС‹Р№ СѓР·РµР» СЃРѕ Р·РЅР°С‡РµРЅРёРµРј value РІ РєРѕРЅРµС† СЃРїРёСЃРєР° head
 void push_back(Node*& head, int value) {
 	if (!head) {
 		head = create_node(value);
@@ -36,14 +36,14 @@ void push_back(Node*& head, int value) {
 	last->prev = it;
 }
 
-//Печатает список head
+//РџРµС‡Р°С‚Р°РµС‚ СЃРїРёСЃРѕРє head
 void print(Node* head) {
 	for (Node* tmp = head; tmp != nullptr; tmp = tmp->next) {
 		std::cout << tmp->value << ' ';
 	}
 }
 
-//Удалить из списка элемент head
+//РЈРґР°Р»РёС‚СЊ РёР· СЃРїРёСЃРєР° СЌР»РµРјРµРЅС‚ head
 void remove(Node*& head, Node* target) {
 	Node* prev;
 	Node* prev1 = target->prev;
@@ -55,7 +55,7 @@ void remove(Node*& head, Node* target) {
 	prev->prev = prev1;
 }
 
-//Вставить элемент за элементом target
+//Р’СЃС‚Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ Р·Р° СЌР»РµРјРµРЅС‚РѕРј target
 void insert(Node*& head, Node* target, int value) {
 	Node* cur = create_node(value);
 	Node* next = target->next;
@@ -65,7 +65,7 @@ void insert(Node*& head, Node* target, int value) {
 	cur->prev = prev;
 }
 
-//Освобождает память
+//РћСЃРІРѕР±РѕР¶РґР°РµС‚ РїР°РјСЏС‚СЊ
 void free_nodes(Node*& head) {
 	Node* cur = head;
 
@@ -76,7 +76,7 @@ void free_nodes(Node*& head) {
 	}
 }
 
-//Вставка в начало списка
+//Р’СЃС‚Р°РІРєР° РІ РЅР°С‡Р°Р»Рѕ СЃРїРёСЃРєР°
 void push_front(Node*& head, int value) {
 	Node* cur = create_node(value);
 	cur->next = head;
@@ -84,8 +84,8 @@ void push_front(Node*& head, int value) {
 }
 
 
-//ДЗ
-//Разворачивает список
+//Р”Р—
+//Р Р°Р·РІРѕСЂР°С‡РёРІР°РµС‚ СЃРїРёСЃРѕРє
 void reverse(Node*& head) {
 	Node* new_head = nullptr;
 	for (Node* pos = head; pos;) {
@@ -97,11 +97,11 @@ void reverse(Node*& head) {
 	head = new_head;
 }
 
-//Слияние сортированных списков
+//РЎР»РёСЏРЅРёРµ СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹С… СЃРїРёСЃРєРѕРІ
 Node* merge(Node* first, Node* second) {
-	// 1 3 5 8 - первый список
-	// 4 10 12 - второй список
-	//функция должна вернуть 1 3 4 5 8 10 12
+	// 1 3 5 8 - РїРµСЂРІС‹Р№ СЃРїРёСЃРѕРє
+	// 4 10 12 - РІС‚РѕСЂРѕР№ СЃРїРёСЃРѕРє
+	//С„СѓРЅРєС†РёСЏ РґРѕР»Р¶РЅР° РІРµСЂРЅСѓС‚СЊ 1 3 4 5 8 10 12
 	
 	Node* ans = new Node;
 	Node* it = ans;
